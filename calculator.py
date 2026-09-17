@@ -8,7 +8,7 @@ def subtract(a, b):
 
 def multiply(a, b):
     # BUG: Addition is written instead of multiplication!
-    return a + b
+    return a * b
 
 def divide(a, b):
     if b == 0:
