@@ -12,7 +12,7 @@ def multiply(a, b):
 
 def divide(a, b):
     if b == 0:
-        return 'Error: Division by zero is not allowed'
+        raise ValueError("Cannot divide by zero")
     return a / b
 
 if __name__ == '__main__':
