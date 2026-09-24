@@ -1,5 +1,5 @@
 import unittest
-from calculator import add, subtract, multiply, divide, sqrt, power, percentage
+from calculator import add, subtract, multiply, divide, sqrt, power, percentage, factorial
 
 class TestCalculator(unittest.TestCase):
     def test_add(self):
@@ -36,6 +36,24 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(percentage(25, 50), 50.0)
         with self.assertRaises(ValueError):
             percentage(10, 0)
+
+    def test_factorial(self):
+        self.assertEqual(factorial(0), 1)
+        self.assertEqual(factorial(1), 1)
+        self.assertEqual(factorial(5), 120)
+        self.assertEqual(factorial(10), 3628800)
+        self.assertEqual(factorial(5.0), 120)  # float representing integer
+        
+        # Test large integer support
+        self.assertEqual(factorial(20), 2432902008176640000)
+
+        # Test invalid inputs
+        with self.assertRaises(ValueError):
+            factorial(-1)
+        with self.assertRaises(TypeError):
+            factorial(3.5)
+        with self.assertRaises(TypeError):
+            factorial("5")
 
 if __name__ == '__main__':
     unittest.main()
