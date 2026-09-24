@@ -37,9 +37,21 @@ def percentage(part, whole):
         raise ValueError("Cannot calculate percentage with zero whole")
     return (part / whole) * 100
 
+def factorial(n):
+    """Calculate the factorial ($n!$) of a given number."""
+    if not isinstance(n, int) and not (isinstance(n, float) and n.is_integer()):
+        raise TypeError("Factorial is only defined for integers")
+    
+    n_int = int(n)
+    if n_int < 0:
+        raise ValueError("Cannot calculate factorial of a negative number")
+    
+    return math.factorial(n_int)
+
 if __name__ == '__main__':
     print('Add 5 + 3:', add(5, 3))
     print('Multiply 5 * 3:', multiply(5, 3))
     print('Sqrt 9:', sqrt(9))
     print('Power 2^3:', power(2, 3))
     print('Percentage 50 of 200:', percentage(50, 200))
+    print('Factorial 5:', factorial(5))
